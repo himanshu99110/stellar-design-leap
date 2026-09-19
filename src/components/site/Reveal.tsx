@@ -19,7 +19,7 @@ export function Reveal({ children, className, as: Tag = "div", delay = 0, varian
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setInView(true);
           io.disconnect();
         }

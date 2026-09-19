@@ -20,7 +20,7 @@ export function CountUp({
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const io = new IntersectionObserver(
       ([e]) => {
-        if (!e.isIntersecting) return;
+        if (!e?.isIntersecting) return;
         io.disconnect();
         if (reduce) return setValue(to);
         const start = performance.now();
