@@ -41,7 +41,6 @@ export function Pillars() {
               delay={i * 120}
               as="a"
               className="group relative flex min-h-[26rem] flex-col justify-between bg-background p-8 transition-colors duration-500 hover:bg-navy hover:text-navy-foreground md:p-10"
-              // @ts-expect-error – Reveal forwards native anchor props via `as`
               href={p.href}
             >
               <span className="display text-[7rem] leading-[0.8] text-primary transition-colors duration-500 group-hover:text-gold md:text-[9rem]">

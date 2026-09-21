@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -7,10 +7,10 @@ type Props = {
   as?: ElementType;
   delay?: number;
   variant?: "fade" | "mask" | "mask-x";
-};
+} & Record<string, unknown>;
 
 /** Scroll-triggered entrance. Fires once, honours reduced-motion via CSS. */
-export function Reveal({ children, className, as: Tag = "div", delay = 0, variant = "fade" }: Props) {
+export function Reveal({ children, className, as: Tag = "div", delay = 0, variant = "fade", ...rest }: Props) {
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
 
@@ -34,9 +34,10 @@ export function Reveal({ children, className, as: Tag = "div", delay = 0, varian
 
   return (
     <Tag
+      {...rest}
       ref={ref}
       data-inview={inView}
-      style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
+      style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
       className={cn(base, className)}
     >
       {children}
