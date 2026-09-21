@@ -30,16 +30,26 @@ export function Reveal({ children, className, as: Tag = "div", delay = 0, varian
     return () => io.disconnect();
   }, []);
 
-  const base = variant === "mask" ? "reveal-mask" : variant === "mask-x" ? "reveal-mask-x" : "reveal";
+  const style = { "--reveal-delay": `${delay}ms` } as CSSProperties;
+
+  // Fully clipped elements report zero intersection, so observe an unclipped
+  // wrapper and clip an inner layer instead.
+  if (variant !== "fade") {
+    return (
+      <Tag {...rest} ref={ref} className={className}>
+        <div
+          data-inview={inView}
+          style={style}
+          className={cn("h-full w-full", variant === "mask" ? "reveal-mask" : "reveal-mask-x")}
+        >
+          {children}
+        </div>
+      </Tag>
+    );
+  }
 
   return (
-    <Tag
-      {...rest}
-      ref={ref}
-      data-inview={inView}
-      style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
-      className={cn(base, className)}
-    >
+    <Tag {...rest} ref={ref} data-inview={inView} style={style} className={cn("reveal", className)}>
       {children}
     </Tag>
   );
