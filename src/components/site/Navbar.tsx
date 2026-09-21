@@ -281,7 +281,7 @@ export function Navbar() {
             <LogoLockup compact={scrolled} className="py-3 transition-all duration-500" />
 
             <nav
-              className={cn("hidden h-full items-stretch self-stretch lg:flex", scrolled ? "min-h-[4.25rem]" : "min-h-[5.25rem]")}
+              className={cn("hidden h-full items-stretch self-stretch xl:flex", scrolled ? "min-h-[4.25rem]" : "min-h-[5.25rem]")}
               onMouseLeave={leave}
             >
               {NAV.map((item) => {
@@ -315,15 +315,16 @@ export function Navbar() {
               })}
             </nav>
 
-            <div className="flex items-center gap-3">
-              <a href={SITE.admissionHref} className="btn btn-primary btn-sm hidden md:inline-flex">
-                {SITE.admissionLabel}
+            <div className="flex shrink-0 items-center gap-3">
+              <a href={SITE.admissionHref} className="btn btn-primary btn-sm hidden md:inline-flex xl:hidden 2xl:inline-flex">
+                <span className="hidden min-[1700px]:inline">{SITE.admissionLabel}</span>
+                <span className="min-[1700px]:hidden">Apply</span>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
               <button
                 onClick={() => setMobileOpen(true)}
                 aria-label="Open menu"
-                className="grid h-11 w-11 place-items-center rounded-full border border-border transition-colors hover:bg-secondary lg:hidden"
+                className="grid h-11 w-11 place-items-center rounded-full border border-border transition-colors hover:bg-secondary xl:hidden"
               >
                 <Menu className="h-5 w-5" />
               </button>

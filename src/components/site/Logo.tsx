@@ -48,15 +48,16 @@ export function LogoLockup({
       <span className="flex min-w-0 flex-col leading-none">
         <span
           className={cn(
-            "font-display text-lg font-semibold tracking-tight sm:text-[1.35rem]",
+            "font-display font-semibold tracking-tight whitespace-nowrap",
+            compact ? "text-[1.05rem]" : "text-[1.05rem] sm:text-[1.25rem]",
             light ? "text-navy-foreground" : "text-foreground",
           )}
         >
-          Silverline Prestige School
+          Silverline <span className="hidden sm:inline">Prestige </span>School
         </span>
         <span
           className={cn(
-            "mt-1 text-[0.62rem] font-bold uppercase tracking-[0.24em]",
+            "mt-1.5 text-[0.6rem] font-bold uppercase tracking-[0.22em] whitespace-nowrap",
             light ? "text-ink-soft" : "text-muted-foreground",
           )}
         >
