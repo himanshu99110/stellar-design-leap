@@ -317,8 +317,8 @@ export function Navbar() {
 
             <div className="flex shrink-0 items-center gap-3">
               <a href={SITE.admissionHref} className="btn btn-primary btn-sm hidden md:inline-flex xl:hidden 2xl:inline-flex">
-                <span className="2xl:hidden min-[1700px]:inline">{SITE.admissionLabel}</span>
-                <span className="hidden 2xl:inline min-[1700px]:hidden">Apply</span>
+                <span className="hidden min-[1700px]:inline">{SITE.admissionLabel}</span>
+                <span className="min-[1700px]:hidden">Apply</span>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
               <button
