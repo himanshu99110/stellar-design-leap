@@ -14,13 +14,6 @@ function News() {
         {IMG.results.map((r) => (
           <figure key={r.name} className="img-zoom relative aspect-[3/4] border border-border">
             <img src={r.src} alt={`${r.name}, ${r.stream}, ${r.score}`} className="h-full w-full object-cover" loading="lazy" />
-            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-[linear-gradient(to_top,oklch(0.2_0.05_262/0.95),transparent)] p-3 text-navy-foreground">
-              <span>
-                <span className="block text-xs font-bold leading-tight">{r.name}</span>
-                <span className="block text-[0.62rem] uppercase tracking-[0.16em] text-navy-foreground/70">{r.stream}</span>
-              </span>
-              <span className="display text-2xl text-gold">{r.score}</span>
-            </figcaption>
           </figure>
         ))}
         {IMG.news.map((n) => (
@@ -51,11 +44,11 @@ function Feedback() {
   const t = TESTIMONIALS[i]!;
 
   return (
-    <Reveal delay={120} className="flex h-full flex-col" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <Reveal delay={120} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <p className="eyebrow eyebrow-line">Parents Feedback</p>
       <h2 className="display mt-5 text-4xl sm:text-5xl">What families say</h2>
 
-      <div className="relative mt-8 flex flex-1 flex-col border-l-2 border-primary pl-6 md:pl-8">
+      <div className="relative mt-10 border-l-2 border-primary pl-6 md:pl-8">
         <span className="display-italic absolute -left-1 -top-8 text-7xl text-primary/25">“</span>
         <p key={i} className="animate-fade-in font-display text-xl leading-relaxed text-foreground/90 sm:text-2xl">
           {t.quote}
